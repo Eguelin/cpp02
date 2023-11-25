@@ -6,144 +6,121 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:21:26 by eguelin           #+#    #+#             */
-/*   Updated: 2023/10/08 15:00:45 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/11/25 16:12:23 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
-Point::Point( void ) : _x(Fixed()), _y(Fixed())
+/* ************************************************************************** */
+/*                         Constructors & Destructors                         */
+/* ************************************************************************** */
+
+Point::Point( void ): _x(Fixed()), _y(Fixed())
 {
 }
 
-Point::Point( Point const &point )
+Point::Point( const Point &point )
 {
-	Point::_x = point.get_x();
-	Point::_y = point.get_y();
+	*this = point;
 }
 
-Point::Point( int const x, int const y )
+Point::Point( const int x, const int y ): _x(Fixed(x)), _y(Fixed(y))
 {
-	Point::_x = Fixed(x);
-	Point::_y = Fixed(y);
 }
 
-Point::Point( float const x, float const y )
+Point::Point( const float x, const float y ): _x(Fixed(x)), _y(Fixed(y))
 {
-	Point::_x = Fixed(x);
-	Point::_y = Fixed(y);
 }
 
-Point::Point( int const x, float const y )
+Point::Point( const int x, const float y ): _x(Fixed(x)), _y(Fixed(y))
 {
-	Point::_x = Fixed(x);
-	Point::_y = Fixed(y);
 }
 
-Point::Point( float const x, int const y )
+Point::Point( const float x, const int y ): _x(Fixed(x)), _y(Fixed(y))
 {
-	Point::_x = Fixed(x);
-	Point::_y = Fixed(y);
 }
 
-Point::Point( int const x, Fixed const &y )
+Point::Point( const int x, const Fixed &y ): _x(Fixed(x)), _y(y)
 {
-	Point::_x = Fixed(x);
-	Point::_y = y;
 }
 
-Point::Point( float const x, Fixed const &y )
+Point::Point( const float x, const Fixed &y ): _x(Fixed(x)), _y(y)
 {
-	Point::_x = Fixed(x);
-	Point::_y = y;
 }
 
-Point::Point( Fixed const &x, int const y )
+Point::Point( const Fixed &x, const int y ): _x(x), _y(Fixed(y))
 {
-	Point::_x = x;
-	Point::_y = Fixed(y);
 }
 
-Point::Point( Fixed const &x, float const y )
+Point::Point( const Fixed &x, const float y ): _x(x), _y(Fixed(y))
 {
-	Point::_x = x;
-	Point::_y = Fixed(y);
 }
 
-Point::Point( Fixed const &x, Fixed const &y )
+Point::Point( const Fixed &x, const Fixed &y ): _x(x), _y(y)
 {
-	Point::_x = x;
-	Point::_y = y;
 }
 
 Point::~Point( void )
 {
 }
 
-Fixed	Point::get_x( void ) const
-{
-	return(Point::_x);
-}
+/* ************************************************************************** */
+/*                             Getters & Setters x                            */
+/* ************************************************************************** */
 
-void	Point::set_x( int const x )
-{
-	Point::_x = Fixed(x);
-}
+const Fixed	&Point::get_x( void ) const {return(this->_x);}
 
-void	Point::set_x( float const x )
-{
-	Point::_x = Fixed(x);
-}
+void	Point::set_x( const int x ) {this->_x = Fixed(x);}
 
-void	Point::set_x( Fixed const &x )
-{
-	Point::_x = x;
-}
+void	Point::set_x( const float x ) {this->_x = Fixed(x);}
 
-Fixed	Point::get_y( void ) const
-{
-	return(Point::_y);
-}
+void	Point::set_x( const Fixed &x ) {this->_x = x;}
 
-void	Point::set_y( int const y )
-{
-	Point::_y = Fixed(y);
-}
+/* ************************************************************************** */
+/*                             Getters & Setters y                            */
+/* ************************************************************************** */
 
-void	Point::set_y( float const y )
-{
-	Point::_y = Fixed(y);
-}
+const Fixed	&Point::get_y( void ) const {return(this->_y);}
 
-void	Point::set_y( Fixed const &y )
-{
-	Point::_y = y;
-}
+void	Point::set_y( const int y ) {this->_y = Fixed(y);}
 
-Point	&Point::operator=( Point const &point )
+void	Point::set_y( const float y ) {this->_y = Fixed(y);}
+
+void	Point::set_y( const Fixed &y ) {this->_y = y;}
+
+/* ************************************************************************** */
+/*                            Operator overloading                            */
+/* ************************************************************************** */
+
+Point	&Point::operator=( const Point &point )
 {
-	Point::_x = point.get_x();
-	Point::_y = point.get_y();
+	this->_x = point.get_x();
+	this->_y = point.get_y();
 
 	return (*this);
 }
 
-Point	Point::operator-( Point const &point ) const
+Point	Point::operator-( const Point &point ) const
 {
 	Point	tmp;
 
-	tmp.set_x(Point::_x - point.get_x());
-	tmp.set_y(Point::_y - point.get_y());
+	tmp.set_x(this->_x - point.get_x());
+	tmp.set_y(this->_y - point.get_y());
 
 	return (tmp);
 }
 
-Fixed	Point::operator*( Point const &point ) const
+Fixed	Point::operator*( const Point &point ) const
 {
-	return (Point::_x * point.get_y()) - (Point::_y * point.get_x());
+	return (this->_x * point.get_y()) - (this->_y * point.get_x());
 }
 
-std::ostream	&operator<<( std::ostream &o, Point const &point )
+/* ************************************************************************** */
+/*                              Print overloading                             */
+/* ************************************************************************** */
+
+std::ostream	&operator<<( std::ostream &o, const Point &point )
 {
 	o << "(" << point.get_x() << ", " << point.get_y() << ")";
 

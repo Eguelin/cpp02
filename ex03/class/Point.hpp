@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:21:29 by eguelin           #+#    #+#             */
-/*   Updated: 2023/10/08 15:05:36 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/11/25 15:47:39 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,44 +16,44 @@
 
 class Point
 {
+	public:
+
+		Point( void );
+		Point( const Point &point );
+		Point( const int x, const int y );
+		Point( const float x, const float y );
+		Point( const int x, const float y );
+		Point( const float x, const int y );
+		Point( const int x, const Fixed &y );
+		Point( const float x, const Fixed &y );
+		Point( const Fixed &x, const int y );
+		Point( const Fixed &x, const float y );
+		Point( const Fixed &x, const Fixed &y );
+		~Point( void );
+
+		const Fixed	&get_x( void ) const;
+		void		set_x( const int x );
+		void		set_x( const float x );
+		void		set_x( const Fixed &x );
+
+		const Fixed	&get_y( void ) const;
+		void		set_y( const int y );
+		void		set_y( const float y );
+		void		set_y( const Fixed &y );
+
+		Point	&operator=( const Point &point );
+
+		Point	operator-( const Point &point ) const;
+		Fixed	operator*( const Point &point ) const;
+
 	private:
 
 		Fixed	_x;
 		Fixed	_y;
-
-	public:
-
-		Point( void );
-		Point( Point const &point );
-		Point( int const x, int const y );
-		Point( float const x, float const y );
-		Point( int const x, float const y );
-		Point( float const x, int const y );
-		Point( int const x, Fixed const &y );
-		Point( float const x, Fixed const &y );
-		Point( Fixed const &x, int const y );
-		Point( Fixed const &x, float const y );
-		Point( Fixed const &x, Fixed const &y );
-		~Point( void );
-
-		Fixed	get_x( void ) const;
-		void	set_x( int const x );
-		void	set_x( float const x );
-		void	set_x( Fixed const &x );
-
-		Fixed	get_y( void ) const;
-		void	set_y( int const y );
-		void	set_y( float const y );
-		void	set_y( Fixed const &y );
-
-		Point	&operator=( Point const &point );
-
-		Point	operator-( Point const &point ) const;
-		Fixed	operator*( Point const &point ) const;
 };
 
-std::ostream	&operator<<( std::ostream &o, Point const &point );
+std::ostream	&operator<<( std::ostream &o, const Point &point );
 
-bool	bsp( Point const a, Point const b, Point const c, Point const point );
+bool	bsp( const Point a, const Point b, const Point c, const Point point );
 
 #endif

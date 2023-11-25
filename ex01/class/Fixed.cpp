@@ -6,73 +6,87 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 11:57:48 by eguelin           #+#    #+#             */
-/*   Updated: 2023/10/07 19:37:32 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/11/25 16:10:57 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-#include <cmath>
 
-Fixed::Fixed( void ) : _raw_bits(0)
+/* ************************************************************************** */
+/*                         Constructors & Destructors                         */
+/* ************************************************************************** */
+
+Fixed::Fixed( void ): _raw_bits(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << GREEN_T << "Default constructor called" << RESET_T << std::endl;
 }
 
-Fixed::Fixed( Fixed const &fixed )
+Fixed::Fixed( const Fixed &fixed )
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << GREEN_T << "Copy constructor called" << RESET_T << std::endl;
 
 	*this = fixed;
 }
 
-Fixed::Fixed( int const i )
+Fixed::Fixed( const int i )
 {
-	std::cout << "Int constructor called" << std::endl;
+	std::cout << GREEN_T << "Int constructor called" << RESET_T << std::endl;
 
-	Fixed::_raw_bits = i << Fixed::_bits_fractional;
+	this->_raw_bits = i << this->_bits_fractional;
 }
 
-Fixed::Fixed( float const f )
+Fixed::Fixed( const float f )
 {
-	std::cout << "Float constructor called" << std::endl;
+	std::cout << GREEN_T << "Float constructor called" << RESET_T << std::endl;
 
-	Fixed::_raw_bits = roundf(f * (1 << Fixed::_bits_fractional));
+	this->_raw_bits = roundf(f * (1 << this->_bits_fractional));
 }
 
 Fixed::~Fixed( void )
 {
-	std::cout << "Destructor called" << std::endl;
-}
-int	Fixed::getRawBits( void ) const
-{
-	return (Fixed::_raw_bits);
+	std::cout << RED_T << "Destructor called" << RESET_T << std::endl;
 }
 
-void	Fixed::setRawBits( int const raw )
-{
-	Fixed::_raw_bits = raw;
-}
+/* ************************************************************************** */
+/*                              Getters & Setters                             */
+/* ************************************************************************** */
 
-float	Fixed::toFloat( void ) const
-{
-	return (float(Fixed::_raw_bits) / (1 << Fixed::_bits_fractional));
-}
+int	Fixed::getRawBits( void ) const {return (this->_raw_bits);}
 
-int	Fixed::toInt( void ) const
-{
-	return (Fixed::_raw_bits >> Fixed::_bits_fractional);
-}
+void	Fixed::setRawBits( const int raw ) {this->_raw_bits = raw;}
 
-Fixed	&Fixed::operator=( Fixed const &fixed )
-{
-	std::cout << "Copy assignment operator called" << std::endl;
+/* ************************************************************************** */
+/*                            Operator overloading                            */
+/* ************************************************************************** */
 
-	Fixed::_raw_bits = fixed.getRawBits();
+Fixed	&Fixed::operator=( const Fixed &fixed )
+{
+	std::cout << GREEN_T << "Copy assignment operator called" << RESET_T << std::endl;
+
+	this->_raw_bits = fixed.getRawBits();
 
 	return (*this);
 }
 
-std::ostream	&operator<<( std::ostream &o, Fixed const &fixed )
+/* ************************************************************************** */
+/*                           Public member functions                          */
+/* ************************************************************************** */
+
+float	Fixed::toFloat( void ) const
+{
+	return (float(this->_raw_bits) / (1 << this->_bits_fractional));
+}
+
+int	Fixed::toInt( void ) const
+{
+	return (this->_raw_bits >> this->_bits_fractional);
+}
+
+/* ************************************************************************** */
+/*                              Print overloading                             */
+/* ************************************************************************** */
+
+std::ostream	&operator<<( std::ostream &o, const Fixed &fixed )
 {
 	o << fixed.toFloat();
 
