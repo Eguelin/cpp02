@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 11:57:46 by eguelin           #+#    #+#             */
-/*   Updated: 2023/11/25 15:29:12 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/11/26 17:00:54 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class Fixed
 	private:
 
 		int					_raw_bits;
-		static const int	_bits_fractional = 8;
+		const static int	_bits_fractional = 8;
 };
 
 #endif

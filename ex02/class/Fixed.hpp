@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 11:57:46 by eguelin           #+#    #+#             */
-/*   Updated: 2023/11/25 12:46:47 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/11/26 17:03:58 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ class Fixed
 	private:
 
 		int					_raw_bits;
-		static int const	_bits_fractional = 8;
+		const static int	_bits_fractional = 8;
 };
 
 std::ostream	&operator<<( std::ostream &o, const Fixed &fixed );
