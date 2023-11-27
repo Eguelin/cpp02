@@ -6,7 +6,7 @@
 #    By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/06 16:35:50 by eguelin           #+#    #+#              #
-#    Updated: 2023/11/26 17:07:30 by eguelin          ###   ########lyon.fr    #
+#    Updated: 2023/11/27 18:02:46 by eguelin          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@
 #                                   Variable                                   #
 # **************************************************************************** #
 
-NAME	= a.out
+NAME	= Fixed
 OUT_DIR	= build/
 CLS_DIR = class/
 SRC_DIR	= src/

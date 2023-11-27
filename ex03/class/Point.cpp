@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:21:26 by eguelin           #+#    #+#             */
-/*   Updated: 2023/11/25 16:12:23 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/11/27 17:56:50 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,34 +69,34 @@ Point::~Point( void )
 /*                             Getters & Setters x                            */
 /* ************************************************************************** */
 
-const Fixed	&Point::get_x( void ) const {return(this->_x);}
+const Fixed	&Point::getX( void ) const {return(this->_x);}
 
-void	Point::set_x( const int x ) {this->_x = Fixed(x);}
+void	Point::setX( const int x ) {this->_x = Fixed(x);}
 
-void	Point::set_x( const float x ) {this->_x = Fixed(x);}
+void	Point::setX( const float x ) {this->_x = Fixed(x);}
 
-void	Point::set_x( const Fixed &x ) {this->_x = x;}
+void	Point::setX( const Fixed &x ) {this->_x = x;}
 
 /* ************************************************************************** */
 /*                             Getters & Setters y                            */
 /* ************************************************************************** */
 
-const Fixed	&Point::get_y( void ) const {return(this->_y);}
+const Fixed	&Point::getY( void ) const {return(this->_y);}
 
-void	Point::set_y( const int y ) {this->_y = Fixed(y);}
+void	Point::setY( const int y ) {this->_y = Fixed(y);}
 
-void	Point::set_y( const float y ) {this->_y = Fixed(y);}
+void	Point::setY( const float y ) {this->_y = Fixed(y);}
 
-void	Point::set_y( const Fixed &y ) {this->_y = y;}
+void	Point::setY( const Fixed &y ) {this->_y = y;}
 
 /* ************************************************************************** */
-/*                            Operator overloading                            */
+/*                              Operator overload                             */
 /* ************************************************************************** */
 
 Point	&Point::operator=( const Point &point )
 {
-	this->_x = point.get_x();
-	this->_y = point.get_y();
+	this->_x = point.getX();
+	this->_y = point.getY();
 
 	return (*this);
 }
@@ -105,24 +105,24 @@ Point	Point::operator-( const Point &point ) const
 {
 	Point	tmp;
 
-	tmp.set_x(this->_x - point.get_x());
-	tmp.set_y(this->_y - point.get_y());
+	tmp.setX(this->_x - point.getX());
+	tmp.setY(this->_y - point.getY());
 
 	return (tmp);
 }
 
 Fixed	Point::operator*( const Point &point ) const
 {
-	return (this->_x * point.get_y()) - (this->_y * point.get_x());
+	return (this->_x * point.getY()) - (this->_y * point.getX());
 }
 
 /* ************************************************************************** */
-/*                              Print overloading                             */
+/*                               Print overload                               */
 /* ************************************************************************** */
 
 std::ostream	&operator<<( std::ostream &o, const Point &point )
 {
-	o << "(" << point.get_x() << ", " << point.get_y() << ")";
+	o << "(" << point.getX() << ", " << point.getY() << ")";
 
 	return (o);
 }

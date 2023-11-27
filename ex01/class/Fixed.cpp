@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 11:57:48 by eguelin           #+#    #+#             */
-/*   Updated: 2023/11/25 16:10:57 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/11/27 16:00:33 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	Fixed::getRawBits( void ) const {return (this->_raw_bits);}
 void	Fixed::setRawBits( const int raw ) {this->_raw_bits = raw;}
 
 /* ************************************************************************** */
-/*                            Operator overloading                            */
+/*                              Operator overload                             */
 /* ************************************************************************** */
 
 Fixed	&Fixed::operator=( const Fixed &fixed )
@@ -83,7 +83,7 @@ int	Fixed::toInt( void ) const
 }
 
 /* ************************************************************************** */
-/*                              Print overloading                             */
+/*                               Print overload                               */
 /* ************************************************************************** */
 
 std::ostream	&operator<<( std::ostream &o, const Fixed &fixed )

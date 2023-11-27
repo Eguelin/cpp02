@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:21:29 by eguelin           #+#    #+#             */
-/*   Updated: 2023/11/25 15:47:39 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/11/27 17:55:42 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,15 @@ class Point
 		Point( const Fixed &x, const Fixed &y );
 		~Point( void );
 
-		const Fixed	&get_x( void ) const;
-		void		set_x( const int x );
-		void		set_x( const float x );
-		void		set_x( const Fixed &x );
+		const Fixed	&getX( void ) const;
+		void		setX( const int x );
+		void		setX( const float x );
+		void		setX( const Fixed &x );
 
-		const Fixed	&get_y( void ) const;
-		void		set_y( const int y );
-		void		set_y( const float y );
-		void		set_y( const Fixed &y );
+		const Fixed	&getY( void ) const;
+		void		setY( const int y );
+		void		setY( const float y );
+		void		setY( const Fixed &y );
 
 		Point	&operator=( const Point &point );
 
