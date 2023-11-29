@@ -1,8 +1,7 @@
-a.out*
-.DS_Store
+*.out*
 *.o
 *.d
 build
 *.pdf
 Fixed
-bsp
+BSP

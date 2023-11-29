@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 11:57:48 by eguelin           #+#    #+#             */
-/*   Updated: 2023/11/27 16:00:33 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/11/29 13:50:49 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@
 
 Fixed::Fixed( void ): _raw_bits(0)
 {
-	std::cout << GREEN_T << "Default constructor called" << RESET_T << std::endl;
+	std::cout << GREEN_T << "Default constructor called" << DEFAULT_T << std::endl;
 }
 
 Fixed::Fixed( Fixed &fixed )
 {
-	std::cout << GREEN_T << "Copy constructor called" << RESET_T << std::endl;
+	std::cout << GREEN_T << "Copy constructor called" << DEFAULT_T << std::endl;
 
 	*this = fixed;
 }
 
 Fixed::~Fixed( void )
 {
-	std::cout << RED_T << "Destructor called" << RESET_T << std::endl;
+	std::cout << RED_T << "Destructor called" << DEFAULT_T << std::endl;
 }
 
 /* ************************************************************************** */
@@ -39,14 +39,14 @@ Fixed::~Fixed( void )
 
 int	Fixed::getRawBits( void ) const
 {
-	std::cout << BLUE_T << "getRawBits member function called" << RESET_T << std::endl;
+	std::cout << BLUE_T << "getRawBits member function called" << DEFAULT_T << std::endl;
 
 	return (this->_raw_bits);
 }
 
 void	Fixed::setRawBits( const int raw )
 {
-	std::cout << BLUE_T << "setRawBits member function called" << RESET_T << std::endl;
+	std::cout << BLUE_T << "setRawBits member function called" << DEFAULT_T << std::endl;
 
 	this->_raw_bits = raw;
 }
@@ -57,7 +57,7 @@ void	Fixed::setRawBits( const int raw )
 
 Fixed	&Fixed::operator=( const Fixed &fixed )
 {
-	std::cout << GREEN_T << "Copy assignment operator called" << RESET_T << std::endl;
+	std::cout << GREEN_T << "Copy assignment operator called" << DEFAULT_T << std::endl;
 
 	this->_raw_bits = fixed.getRawBits();
 
