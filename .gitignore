@@ -1,7 +1,8 @@
 *.out*
 *.o
 *.d
-build
 *.pdf
+.obj
 Fixed
 BSP
+
