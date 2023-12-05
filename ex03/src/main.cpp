@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 11:55:31 by eguelin           #+#    #+#             */
-/*   Updated: 2023/11/29 13:50:49 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/12/05 14:04:41 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 
 int main( void )
 {
-	Point	a(-1, Fixed(2));
+	Point	a(-1, 2);
 	Point	b(-1, -2);
 	Point	c(1 , 0);
-	Point	point(0 , 0.9f);
+	Point	point(0, 0);
 
 	std::cout << "A = " << a << std::endl;
 	std::cout << "B = " << b << std::endl;
