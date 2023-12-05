@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:21:29 by eguelin           #+#    #+#             */
-/*   Updated: 2023/12/05 15:29:51 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/12/05 19:10:33 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ class Point
 
 std::ostream	&operator<<( std::ostream &o, const Point &point );
 
-bool	bsp( const Point &a, const Point &b, const Point &c, const Point &point );
+bool	bsp( const Point a, const Point b, const Point c, const Point point );
 
 #endif

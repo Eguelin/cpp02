@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 11:57:48 by eguelin           #+#    #+#             */
-/*   Updated: 2023/11/27 16:00:33 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/12/05 19:08:38 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,32 +102,32 @@ const Fixed	&Fixed::max( const Fixed &fixed_1, const Fixed &fixed_2 )
 
 int	Fixed::operator>( const Fixed &fixed ) const
 {
-	return (this->_raw_bits > fixed.getRawBits());
+	return (this->_raw_bits > fixed._raw_bits);
 }
 
 int	Fixed::operator<( const Fixed &fixed ) const
 {
-	return (this->_raw_bits < fixed.getRawBits());
+	return (this->_raw_bits < fixed._raw_bits);
 }
 
 int	Fixed::operator>=( const Fixed &fixed ) const
 {
-	return (this->_raw_bits >= fixed.getRawBits());
+	return (this->_raw_bits >= fixed._raw_bits);
 }
 
 int	Fixed::operator<=( const Fixed &fixed ) const
 {
-	return (this->_raw_bits <= fixed.getRawBits());
+	return (this->_raw_bits <= fixed._raw_bits);
 }
 
 int	Fixed::operator==( const Fixed &fixed ) const
 {
-	return (this->_raw_bits == fixed.getRawBits());
+	return (this->_raw_bits == fixed._raw_bits);
 }
 
 int	Fixed::operator!=( const Fixed &fixed ) const
 {
-	return (this->_raw_bits != fixed.getRawBits());
+	return (this->_raw_bits != fixed._raw_bits);
 }
 
 /* ************************************************************************** */
