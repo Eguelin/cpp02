@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 11:57:46 by eguelin           #+#    #+#             */
-/*   Updated: 2023/11/26 17:03:28 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2024/10/11 17:48:08 by eguelin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ class Fixed
 
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
+		int		toFractional( void ) const;
 
 		static Fixed		&min( Fixed &fixed_1, Fixed &fixed_2 );
 		static const Fixed	&min( const Fixed &fixed_1, const Fixed &fixed_2 );

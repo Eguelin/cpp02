@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 11:57:48 by eguelin           #+#    #+#             */
-/*   Updated: 2023/12/05 19:10:23 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2025/01/23 18:32:19 by eguelin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,11 @@ float	Fixed::toFloat( void ) const
 int	Fixed::toInt( void ) const
 {
 	return (this->_raw_bits >> this->_bits_fractional);
+}
+
+int	Fixed::toFractional( void ) const
+{
+	return (this->_raw_bits & ((1 << this->_bits_fractional) - 1));
 }
 
 /* ************************************************************************** */
@@ -136,22 +141,41 @@ int	Fixed::operator!=( const Fixed &fixed ) const
 
 Fixed	Fixed::operator+( const Fixed &fixed ) const
 {
-	return (this->toFloat() + fixed.toFloat());
+	Fixed	result;
+
+	result.setRawBits(this->_raw_bits + fixed.getRawBits());
+
+	return (result);
 }
 
 Fixed	Fixed::operator-( const Fixed &fixed ) const
 {
-	return (this->toFloat() - fixed.toFloat());
+	Fixed	result;
+
+	result.setRawBits(this->_raw_bits - fixed.getRawBits());
+
+	return (result);
 }
 
 Fixed	Fixed::operator*( const Fixed &fixed ) const
 {
-	return (this->toFloat() * fixed.toFloat());
+	Fixed	result;
+
+	result.setRawBits((this->toInt() * fixed.getRawBits()) + ((this->toFractional() * fixed.getRawBits()) >> this->_bits_fractional));
+
+	return (result);
 }
 
 Fixed	Fixed::operator/( const Fixed &fixed ) const
 {
-	return (this->toFloat() / fixed.toFloat());
+	Fixed	result;
+
+	int int_part = (this->toInt() << this->_bits_fractional);
+	int frac_part = (int_part % fixed.getRawBits()) + this->toFractional();
+
+	result.setRawBits(((int_part / fixed.getRawBits()) << this->_bits_fractional) + (frac_part << this->_bits_fractional) / fixed.getRawBits());
+
+	return (result);
 }
 
 /* ************************************************************************** */
